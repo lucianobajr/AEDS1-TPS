@@ -18,7 +18,7 @@ void combinationUtil(item *itens_vetor,mochila *moch,int data[], int data2[], in
     int i = 0, valor = 0, peso = 0, j = 0;
     int vec_aux_peso[r];
     int vec_aux_valor[r];
-    int valor_aux, peso_aux = 0;
+    int valor_aux, peso_aux = 0; 
 
     // A combinação atual está pronta para ser impressa, imprima-a
     if (index == r){
@@ -28,16 +28,17 @@ void combinationUtil(item *itens_vetor,mochila *moch,int data[], int data2[], in
             peso_aux += data[j];
             valor_aux += data2[j];
         }
-        if (valor_aux >= moch->soma_valor && peso_aux <= W){
-            for (j = 0; j < r; j++){
-                // como vou tratar se tiverem as somas dos valores iguais  == > lista final
-                    moch->itens_mochila[j].peso=data[j];
-                    moch->itens_mochila[j].valor=data2[j];
-                }
-            moch->soma_peso=peso_aux;
-            moch->soma_valor=valor_aux;    
-            moch->quantidade=j;
-        }
+        if ((valor_aux > moch->soma_valor && peso_aux <= W) || ( valor_aux ==  moch->soma_valor  && r >= moch -> quantidade)){ 
+                for (j = 0; j < r; j++){
+                    // como vou tratar se tiverem as somas dos valores iguais  == > lista final
+                        moch->itens_mochila[j].peso=data[j];
+                        moch->itens_mochila[j].valor=data2[j];
+                    }
+                moch->soma_peso=peso_aux;
+                moch->soma_valor=valor_aux;    
+                moch->quantidade=j; 
+            }
+        
         
         // zera para nao dar lixo de memoria
         peso_aux = 0;
@@ -109,7 +110,7 @@ void inicializaVetor(mochila *moch, int N,int tam){
     moch->capacidade = tam;
     moch->quantidade=0;
     moch->soma_peso=0;
-    moch->soma_valor=0;
+    moch->soma_valor=0; 
 }
 
 void imprime_mochila(mochila *moch){
