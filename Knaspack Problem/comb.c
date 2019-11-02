@@ -23,8 +23,8 @@ void combinationUtil(item *itens_vetor,mochila *moch,int data[], int data2[], in
     // A combinação atual está pronta para ser impressa, imprima-a
     if (index == r){
         for (j = 0; j < r; j++){
-            printf("%d ", data[j]);
-            printf("%d ", data2[j]);
+            //printf("%d ", data[j]);
+            //printf("%d ", data2[j]);
             peso_aux += data[j];
             valor_aux += data2[j];
         }
@@ -42,7 +42,7 @@ void combinationUtil(item *itens_vetor,mochila *moch,int data[], int data2[], in
         // zera para nao dar lixo de memoria
         peso_aux = 0;
         valor_aux = 0;
-        printf("\n");
+        //printf("\n");
         return;
     }
 
