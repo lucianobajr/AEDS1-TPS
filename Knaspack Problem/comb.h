@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 #define W 40
-
+    
 typedef struct {
     int peso;
     int valor;
