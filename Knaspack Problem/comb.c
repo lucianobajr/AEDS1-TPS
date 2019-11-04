@@ -28,7 +28,7 @@ void combinationUtil(item *itens_vetor,mochila *moch,int data[], int data2[], in
             peso_aux += data[j];
             valor_aux += data2[j];
         }
-        if (valor_aux >= moch->soma_valor && peso_aux <= W){
+        if ((valor_aux > moch->soma_valor && peso_aux <= W) || ( valor_aux ==  moch->soma_valor  && r >= moch -> quantidade && peso_aux<=W)){
             for (j = 0; j < r; j++){
                 // como vou tratar se tiverem as somas dos valores iguais  == > lista final
                     moch->itens_mochila[j].peso=data[j];

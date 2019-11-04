@@ -1,5 +1,5 @@
 import random
-t=35
+t=20
 arq=open("%d.txt"%t,"w")
 peso=[random.randint(0,50)for i in range(t)]
 valor=[random.randint(0,50)for i in range(t)]
