@@ -122,3 +122,52 @@ void imprime_mochila(mochila *moch){
      }   
      printf("]\n");
 }
+void menu(){
+    int i,resposta=1;
+    fputs(" ", stdout);
+    for(i=0;i<163;i++){
+        fputs("_", stdout);
+    }
+    printf("\n|");
+    for(i=0;i<163;i++){
+        fputs(" ", stdout);
+    }
+    printf("|\n|"); 
+    for(i=0;i<80;i++){
+        fputs(" ", stdout);
+    }
+    printf("MENU");
+    for(i=0;i<79;i++){
+        fputs(" ", stdout);
+    }
+    printf("|");
+    printf("\n");
+    printf("|");
+    for(i=0;i<163;i++){
+        fputs("_", stdout);
+    }
+    printf("|\n|");
+    for(i=0;i<163;i++){
+        fputs(" ", stdout);
+    }
+    printf("|\n|           ");
+    printf("Digite (1) para fazer a leitura do arquivo (2) para Imprimir os itens adicionados na mochila (3) para Imprimir o tempo gasto na execução do programa    |");
+    printf("\n");
+    printf("|"); 
+    for(i=0;i<27;i++){
+        fputs(" ", stdout);
+    } 
+    printf("E  qualquer número diferente dos anteriores para finalizar a execução do programa.");     
+    for(i=0;i<5;i++){
+        fputs(" ", stdout);
+    }  
+    printf("|\n");
+    printf("|");
+    for(i=0;i<163;i++){
+        fputs("_", stdout);
+    }
+    printf("|\n");
+    printf("------------->");
+    scanf("%d",&resposta);
+    fflush(stdin);
+}   
