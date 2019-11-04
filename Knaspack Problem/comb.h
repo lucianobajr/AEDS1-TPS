@@ -25,3 +25,4 @@ void insere(arquivo *arq);
 void imprime(item* itens_vetor,int qt);
 void inicializaVetor(mochila *moch, int N,int tam);
 void imprime_mochila(mochila *moch);
+void menu();
