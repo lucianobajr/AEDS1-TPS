@@ -63,7 +63,7 @@ void insere(arquivo *arq){
     int tamanho_vet, i = 0, cont = 0;
     char nome[30];
     item copia;
-    printf("Digite o nome do arquivo para o caso de teste (Na mesma pasta e com .txt)");
+    printf("Digite o nome do arquivo para o caso de teste (Na mesma pasta e com .txt) = ");
     fgets(nome, 30, stdin);
     nome[strlen(nome) - 1] = '\0';
     teste = fopen(nome, "r");
@@ -91,12 +91,12 @@ void insere(arquivo *arq){
     }
 }
 
-void imprime(item* itens_vetor,int qt){
+void imprime(arquivo *arq){
     int i;
-    for (i = 0; i <qt; i++){
+    for (i = 0; i <arq->quantidade_arquivo; i++){
         printf("ITENS\n");
-        printf("PESO = %d\n", itens_vetor[i].peso);
-        printf("RELEVANCIA = %d \n", itens_vetor[i].valor);
+        printf("PESO = %d\n", arq->itens_arquivo[i].peso);
+        printf("RELEVANCIA = %d \n",arq->itens_arquivo[i].valor);
         printf("\n");
     }
 }
@@ -113,7 +113,8 @@ void inicializaVetor(mochila *moch, int N,int tam){
 }
 
 void imprime_mochila(mochila *moch){
-     int i;
+     int i,resposta;
+     double tempo;
      printf("ITENS\n");
      printf("[");
      for (i = 0; i<moch->quantidade; i++){   
@@ -122,8 +123,43 @@ void imprime_mochila(mochila *moch){
      }   
      printf("]\n");
 }
-void menu(){
-    int i,resposta=1;
+void menu(arquivo *arq,mochila *moch){
+    int i,resposta=1,r = 1;
+     double tempo;
+    clock_t fim,inicio;
+    insere(arq);
+    inicializaVetor(moch,arq->quantidade_arquivo,W);
+    inicio=clock(); 
+    for(i=0;i<arq->quantidade_arquivo;i++){
+            //printf("combinação de tamanho %d\n",r);
+            printCombination(arq->itens_arquivo,moch,arq->quantidade_arquivo,r);
+            r++;
+        }  
+    fim=clock(); 
+    tempo=((double)(fim-inicio))/CLOCKS_PER_SEC;
+    do{
+        printa_menu();
+        scanf("%d",&resposta);
+        if(resposta==1||resposta==2||resposta==3){
+            if(resposta==1){
+                imprime_mochila(moch);
+            }
+            if(resposta==2){
+                printf("tempo gasto = %lf segundos\n",tempo);
+            }
+            if(resposta==3){
+                imprime(arq);
+            }
+        }
+        else{
+            break;
+        }
+    }
+    while(resposta!=1||resposta!=2||resposta!=3);
+}   
+
+void printa_menu(){
+    int i;
     fputs(" ", stdout);
     for(i=0;i<163;i++){
         fputs("_", stdout);
@@ -151,14 +187,14 @@ void menu(){
         fputs(" ", stdout);
     }
     printf("|\n|           ");
-    printf("Digite (1) para fazer a leitura do arquivo (2) para Imprimir os itens adicionados na mochila (3) para Imprimir o tempo gasto na execução do programa    |");
+    printf("Digite (1)  para Imprimir os itens adicionados na mochila (2) para Imprimir o tempo gasto na execução do programa (3) para imprimir os itens do arquivo |");
     printf("\n");
     printf("|"); 
-    for(i=0;i<27;i++){
+    for(i=0;i<43;i++){
         fputs(" ", stdout);
     } 
-    printf("E  qualquer número diferente dos anteriores para finalizar a execução do programa.");     
-    for(i=0;i<5;i++){
+    printf("E Qualquer número diferente dos anteriores para fechar o programa.");     
+    for(i=0;i<54;i++){
         fputs(" ", stdout);
     }  
     printf("|\n");
@@ -168,6 +204,5 @@ void menu(){
     }
     printf("|\n");
     printf("------------->");
-    scanf("%d",&resposta);
     fflush(stdin);
-}   
+}
