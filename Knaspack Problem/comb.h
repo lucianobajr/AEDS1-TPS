@@ -22,7 +22,8 @@ typedef struct{
 void combinationUtil(item *itens_vetor,mochila *moch, int data[], int data2[], int start, int end, int index, int r);
 void printCombination(item* itens_vetor,mochila *moch, int n, int r);
 void insere(arquivo *arq);
-void imprime(item* itens_vetor,int qt);
+void imprime(arquivo *arq);
 void inicializaVetor(mochila *moch, int N,int tam);
 void imprime_mochila(mochila *moch);
-void menu();
+void menu(arquivo *arq,mochila *moch);
+void printa_menu();
