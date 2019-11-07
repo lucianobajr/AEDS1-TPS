@@ -1,36 +1,27 @@
 #include "comb.h"
-// A principal função que imprime todas as combinações de tamanho r
-// em arr [] de tamanho n. Essa função usa principalmente o combinaçãoUtil ()
+
 void printCombination(item *itens_vetor,mochila *moch,int n, int r){
-    // Uma matriz temporária para armazenar todas as combinações uma a uma
     int data[r];
     int data2[r];
-    // Imprime todas as combinações usando a matriz temporária 'data []'
     combinationUtil(itens_vetor,moch,data, data2, 0, n - 1, 0, r);
 }
-/*  arr [] ---> Matriz de entrada
-    data [] ---> Matriz temporária para armazenar a combinação atual
-    início e fim ---> Índices de início e término em arr []
-    índice ---> Índice atual nos dados []
-    r ---> Tamanho de uma combinação a ser impressa */
 
 void combinationUtil(item *itens_vetor,mochila *moch,int data[], int data2[], int start, int end, int index, int r){
     int i = 0, valor = 0, peso = 0, j = 0;
     int vec_aux_peso[r];
     int vec_aux_valor[r];
     int valor_aux, peso_aux = 0; 
-
-    // A combinação atual está pronta para ser impressa, imprima-a
     if (index == r){
         for (j = 0; j < r; j++){
-            //printf("%d ", data[j]);
-            //printf("%d ", data2[j]);
+            /*printa as combinações r a r
+                printf("%d ", data[j]);
+                printf("%d ", data2[j]);
+            */
             peso_aux += data[j];
             valor_aux += data2[j];
         }
         if ((valor_aux > moch->soma_valor && peso_aux <= W) || ( valor_aux ==  moch->soma_valor  && r >= moch -> quantidade && peso_aux<=W)){
             for (j = 0; j < r; j++){
-                // como vou tratar se tiverem as somas dos valores iguais  == > lista final
                     moch->itens_mochila[j].peso=data[j];
                     moch->itens_mochila[j].valor=data2[j];
                 }
@@ -38,18 +29,10 @@ void combinationUtil(item *itens_vetor,mochila *moch,int data[], int data2[], in
             moch->soma_valor=valor_aux;    
             moch->quantidade=j;
         }
-        
-        // zera para nao dar lixo de memoria
         peso_aux = 0;
         valor_aux = 0;
-        //printf("\n");
         return;
     }
-
-    /*  substitui o índice por todos os elementos possíveis. A condição
-            no index fará uma combinação com os elementos restantes
-            "end-i + 1> = r-index" garante que a inclusão de um elemento
-            nas posições restantes*/
 
     for (i = start; i <= end && end - i + 1 >= r - index; i++){
         data[index] = itens_vetor[i].peso;
@@ -77,8 +60,7 @@ void insere(arquivo *arq){
             printf("ERRO");
         }
         
-        while (!feof(teste)){
-            //add os items na lista    
+        while (!feof(teste)){    
             fscanf(teste, "%d %d", &copia.peso, &copia.valor);
                 aux[i].peso= copia.peso;
                 aux[i].valor =copia.valor;
@@ -88,16 +70,6 @@ void insere(arquivo *arq){
         arq->quantidade_arquivo = tamanho_vet;
         fclose(teste);
         i--; 
-    }
-}
-
-void imprime(arquivo *arq){
-    int i;
-    for (i = 0; i <arq->quantidade_arquivo; i++){
-        printf("ITENS\n");
-        printf("PESO = %d\n", arq->itens_arquivo[i].peso);
-        printf("RELEVANCIA = %d \n",arq->itens_arquivo[i].valor);
-        printf("\n");
     }
 }
 
@@ -112,26 +84,130 @@ void inicializaVetor(mochila *moch, int N,int tam){
     moch->soma_valor=0; 
 }
 
+void imprime(arquivo *arq){
+    int i,j;
+     fputs(" ", stdout);
+    for(i=0;i<163;i++){
+        fputs("_", stdout);
+    }
+    printf("\n|");
+    for(i=0;i<163;i++){
+        fputs(" ", stdout);
+    }
+    printf("|\n|"); 
+        for(i=0;i<80;i++){
+        fputs(" ", stdout);
+    }
+    printf("ITENS");
+    for(i=0;i<78;i++){
+        fputs(" ", stdout);
+    }
+    printf("|");
+    printf("\n");
+    printf("|");
+    for(i=0;i<163;i++){
+        fputs("_", stdout);
+    }
+    printf("|\n|");
+    for(i=0;i<163;i++){
+        fputs(" ", stdout);
+    }
+    printf("|\n|           ");
+    for(i=0;i<152;i++){
+        fputs(" ", stdout);
+    }
+    printf("|");
+    printf("\n"); 
+    for (i = 0; i <arq->quantidade_arquivo; i++){
+        printf("|");
+        for(j=0;j<78;j++){
+            fputs(" ", stdout);
+        }  
+        printf("PESO = %d",arq->itens_arquivo[i].peso);
+        if(arq->itens_arquivo[i].peso<10){
+            fputs(" ", stdout);
+        }
+        for(j=0;j<76;j++){
+            fputs(" ", stdout);
+        }  
+        printf("|");
+        printf("\n");
+        printf("|");
+        for(j=0;j<78;j++){
+            fputs(" ", stdout);
+        }  
+        printf("VALOR = %d",arq->itens_arquivo[i].valor);
+        if(arq->itens_arquivo[i].valor<10){
+            fputs(" ", stdout);
+        }
+        for(j=0;j<75;j++){
+            fputs(" ", stdout);
+        }  
+        printf("|");
+        printf("\n");
+        printf("|");
+        for(j=0;j<163;j++){
+            fputs(" ", stdout);
+        }
+         printf("|");
+        printf("\n");
+    }
+    printf("|");
+    for(i=0;i<163;i++){
+        fputs("_", stdout);
+    }
+    printf("|\n");
+    fflush(stdin); 
+}
+
 void imprime_mochila(mochila *moch){
-     int i,resposta;
-     double tempo;
-     printf("ITENS\n");
-     printf("[");
-     for (i = 0; i<moch->quantidade; i++){   
+    int i,j;
+    fputs(" ", stdout);
+    for(i=0;i<163;i++){
+        fputs("_", stdout);
+    }
+    printf("\n|");
+    for(i=0;i<163;i++){
+        fputs(" ", stdout);
+    }
+    printf("|\n|"); 
+        for(i=0;i<80;i++){
+        fputs(" ", stdout);
+    }
+    printf("MOCHILA");
+    for(i=0;i<76;i++){
+        fputs(" ", stdout);
+    }
+    printf("|");
+    printf("\n");
+    printf("|");
+    for(i=0;i<163;i++){
+        fputs("_", stdout);
+    }
+    printf("|\n\n\n"); 
+    for(i=0;i<(147-moch->quantidade)/2;i++){
+        fputs(" ", stdout);
+    }
+    printf("[");
+   
+    for (i = 0; i<moch->quantidade; i++){   
         printf("(%d,",moch->itens_mochila[i].peso);
         printf("%d)",moch->itens_mochila[i].valor);   
-     }   
-     printf("]\n");
+    }   
+    printf("]\n\n\n");
 }
+
 void menu(arquivo *arq,mochila *moch){
     int i,resposta=1,r = 1;
-     double tempo;
+    double tempo;
     clock_t fim,inicio;
     insere(arq);
     inicializaVetor(moch,arq->quantidade_arquivo,W);
     inicio=clock(); 
     for(i=0;i<arq->quantidade_arquivo;i++){
-            //printf("combinação de tamanho %d\n",r);
+            /* print para saber qual combinação está sendo feita.
+                    printf("combinação de tamanho %d\n",r);
+            */
             printCombination(arq->itens_arquivo,moch,arq->quantidade_arquivo,r);
             r++;
         }  
@@ -145,7 +221,33 @@ void menu(arquivo *arq,mochila *moch){
                 imprime_mochila(moch);
             }
             if(resposta==2){
-                printf("tempo gasto = %lf segundos\n",tempo);
+                 fputs(" ", stdout);
+                for(i=0;i<163;i++){
+                    fputs("_", stdout);
+                }
+                printf("\n|");
+                for(i=0;i<163;i++){
+                    fputs(" ", stdout);
+                }
+                printf("|\n|"); 
+                    for(i=0;i<80;i++){
+                    fputs(" ", stdout);
+                }
+                printf("TEMPO");
+                for(i=0;i<78;i++){
+                    fputs(" ", stdout);
+                }
+                printf("|");
+                printf("\n");
+                printf("|");
+                for(i=0;i<163;i++){
+                    fputs("_", stdout);
+                }
+                printf("|\n\n\n"); 
+                for(i=0;i<(147)/2;i++){
+                    fputs(" ", stdout);
+                }
+                printf("Tempo Gasto = %lf segundos\n\n\n",tempo);
             }
             if(resposta==3){
                 imprime(arq);
@@ -169,7 +271,7 @@ void printa_menu(){
         fputs(" ", stdout);
     }
     printf("|\n|"); 
-    for(i=0;i<80;i++){
+        for(i=0;i<80;i++){
         fputs(" ", stdout);
     }
     printf("MENU");
