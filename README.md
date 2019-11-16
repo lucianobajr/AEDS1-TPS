@@ -1,4 +1,4 @@
-# AEDS-TPS
+# Trabalhos  Práticos da disciplina de Algortimo e Estrutura de Dados I
 <h1><a href="https://github.com/lucianobajr/AEDS-TPS/tree/master/TP1">Matriz Esparsa</a></h1>
 
 ![Captura de tela de 2019-11-15 16-20-33](https://user-images.githubusercontent.com/45442173/68969659-46bd0a80-07c4-11ea-8147-3bca1545f2c2.png)
