@@ -19,6 +19,13 @@ The knapsack problem or rucksack problem is a problem in combinatorial optimizat
 
 ## Ordering <br>[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/https://github.com/lucianobajr/AEDS-TPS/tree/master/TP3)
 
+* To  compile use
+<p align="center">
+
+        gcc main.c palavra.c texto.c bbt.c -o main 
+
+</p>
+
 Practical work 3 is based on three main data structures: word, text, and library. A word is composed of characters, a text is composed of words, and a library is composed of texts, each of which is structured. developed with linked lists and array. The objective of this work is to create a random word generation algorithm and thus sort a text in alphabetical order and a library from the number of words each text has.
 * The group chose to implement the Select Sort, Quick Sort, Merge Sort, and Heap Sort algorithms for both text and library with array.
 * The group tried to implement the Select  Sort, Quick Sort, Merge Sort, and Insert Sort  algorithms for both text and library with linked lists.
