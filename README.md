@@ -17,7 +17,7 @@ The knapsack problem or rucksack problem is a problem in combinatorial optimizat
 </p>
 
 
-## Ordering <br>[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/https://github.com/lucianobajr/AEDS-TPS/tree/master/TP3)
+## Ordering <br>[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/lucianobajr/Algorithm-and-Data-Structures--Practical-Work/tree/master/TP3)
 
 * To  compile use
 <p align="center">
