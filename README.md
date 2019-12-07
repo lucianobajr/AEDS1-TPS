@@ -20,11 +20,55 @@ The knapsack problem or rucksack problem is a problem in combinatorial optimizat
 ## Ordering <br>[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/https://github.com/lucianobajr/AEDS-TPS/tree/master/TP3)
 
 Practical work 3 is based on three main data structures: word, text, and library. A word is composed of characters, a text is composed of words, and a library is composed of texts, each of which is structured. developed with linked lists and array. The objective of this work is to create a random word generation algorithm and thus sort a text in alphabetical order and a library from the number of words each text has.
-* The group chose to implement the Sort Sort, Quick Sort, Merge Sort, and Heap Sort sort algorithms for both text and library with array.
-* The group tried to implement the Sort Sort, Quick Sort, Merge Sort, and Insert Sort sort algorithms for both text and library with linked lists.
+* The group chose to implement the Select Sort, Quick Sort, Merge Sort, and Heap Sort algorithms for both text and library with array.
+* The group tried to implement the Select  Sort, Quick Sort, Merge Sort, and Insert Sort  algorithms for both text and library with linked lists.
 
-![Merge_sort_animation2](https://user-images.githubusercontent.com/45442173/70361672-20d5d380-1861-11ea-992d-d5cc8f02a471.gif)
-![Merge_sort_animation2](https://user-images.githubusercontent.com/45442173/70361675-23d0c400-1861-11ea-8a0d-ed499dbf3439.gif)
-<br>
-![Sorting_heapsort_anim](https://user-images.githubusercontent.com/45442173/70361685-29c6a500-1861-11ea-8cf0-33f3232ba115.gif)
-![Sorting_quicksort_anim](https://user-images.githubusercontent.com/45442173/70361686-2c28ff00-1861-11ea-9432-fc8acf586926.gif)
+<p align="center">
+
+    Selection  Sort
+
+</p>
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/45442173/70378293-7495fa80-18fd-11ea-8707-52d04d36449c.gif">
+</p>
+
+<p align="center">
+
+    Quick  Sort
+
+</p>
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/45442173/70378458-4ca79680-18ff-11ea-938c-5d25ff51fc78.gif">
+</p>
+
+<p align="center">
+
+    Merge  Sort
+
+</p>
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/45442173/70378525-0bfc4d00-1900-11ea-89e3-993d955394af.gif">
+</p>
+
+<p align="center">
+
+    Heap Sort
+
+</p>
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/45442173/70378133-bde54a80-18fb-11ea-8b65-7119c9e85f7f.gif">
+</p>
+
+<p align="center">
+
+    Insertion Sort
+
+</p>
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/45442173/70378593-e15ec400-1900-11ea-91e3-d587886d9de8.gif">
+</p>
