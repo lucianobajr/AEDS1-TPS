@@ -26,6 +26,13 @@ The knapsack problem or rucksack problem is a problem in combinatorial optimizat
 
 </p>
 
+* To  execute use
+<p align="center">
+
+        ./main 
+
+</p>
+
 Practical work 3 is based on three main data structures: word, text, and library. A word is composed of characters, a text is composed of words, and a library is composed of texts, each of which is structured. developed with linked lists and array. The objective of this work is to create a random word generation algorithm and thus sort a text in alphabetical order and a library from the number of words each text has.
 * The group chose to implement the Select Sort, Quick Sort, Merge Sort, and Heap Sort algorithms for both text and library with array.
 * The group tried to implement the Select  Sort, Quick Sort, Merge Sort, and Insert Sort  algorithms for both text and library with linked lists.
